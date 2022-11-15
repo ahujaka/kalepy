@@ -221,6 +221,7 @@ class Kernel(object):
 
         try:
             indices = np.random.choice(nvals, size=size, p=weights)
+            print(indices)
         except:
             logging.error("`numpy.random.choice` failed.")
             # logging.error(f"{np.shape(data)=}, {size=}, {nvals=}, {utils.stats_str(weights)=}")
@@ -229,6 +230,7 @@ class Kernel(object):
             )
             raise
         means = data[:, indices]
+        print(means)
         # Shift each re-drawn sample based on the kernel-samples
         samps = means + norm
         return samps
